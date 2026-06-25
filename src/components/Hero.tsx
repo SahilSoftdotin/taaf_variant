@@ -18,7 +18,7 @@ export function Hero() {
           preload="auto"
           aria-hidden
         >
-          <source src="/video/hero.mp4" type="video/mp4" />
+          <source src="/video/hero-coin.mp4" type="video/mp4" />
         </video>
         {/* light wash so dark text stays readable over the footage */}
         <div
