@@ -36,8 +36,14 @@ export function Services() {
                 {div.services.map((s) => (
                   <div
                     key={s.slug}
-                    className="group flex cursor-default items-start gap-3 rounded-xl p-3 transition-colors duration-200 hover:bg-paper"
+                    className="group flex cursor-default items-center gap-3.5 rounded-xl p-2.5 transition-colors duration-200 hover:bg-paper"
                   >
+                    <img
+                      src={`/images/services/${s.slug}.jpg`}
+                      alt={s.title}
+                      loading="lazy"
+                      className="h-14 w-14 shrink-0 rounded-xl object-cover ring-1 ring-black/5"
+                    />
                     <div className="min-w-0">
                       <p className="flex items-center gap-1 text-base font-medium text-black">
                         {s.title}
