@@ -15,8 +15,33 @@ export const company = {
 export const navLinks = [
   { label: "Services", href: "#services" },
   { label: "How we help", href: "#use-cases" },
-  { label: "Why TAAF", href: "#why" },
+  { label: "Locations", href: "#locations" },
   { label: "Contact", href: "#contact" },
+];
+
+export interface OfficeLocation {
+  name: string;
+  address: string;
+  mapUrl: string;
+  image: string;
+  tag: string;
+}
+
+export const locations: OfficeLocation[] = [
+  {
+    name: "Toukley",
+    address: "Unit 2/28 Canton Beach Road, Toukley NSW 2263",
+    mapUrl: "https://maps.app.goo.gl/bNFbunxrTepzdd7n6",
+    image: "/images/locations/toukley.jpg",
+    tag: "Head office",
+  },
+  {
+    name: "Newcastle",
+    address: "500 Hunter Street, Newcastle NSW 2300",
+    mapUrl: "https://maps.app.goo.gl/hTyCeguT5SQXseTj8",
+    image: "/images/locations/newcastle.jpg",
+    tag: "Office",
+  },
 ];
 
 export interface Logo {
