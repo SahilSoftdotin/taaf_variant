@@ -32,7 +32,8 @@ export function Hero() {
             Financial
             <br />
             <RotatingWords
-              words={["confidence", "independence", "freedom", "growth"]}
+              words={["confidence.", "independence.", "freedom.", "growth."]}
+              className="font-serif italic text-black/90"
             />
           </h1>
           <p

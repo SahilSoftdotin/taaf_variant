@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 
 /**
- * Cycles through words in place, restarting the CSS swap animation on each
- * change via the `key` remount. Holds on the first word under reduced motion.
+ * Smooth cross-fading rotating word. Words are stacked over an invisible spacer
+ * (sized to the longest word) so layout never shifts; only opacity + translateY
+ * transition for a buttery, GPU-friendly swap.
  */
 export function RotatingWords({
   words,
-  interval = 2200,
-  className,
+  interval = 2000,
+  className = "",
 }: {
   words: string[];
   interval?: number;
@@ -21,14 +22,27 @@ export function RotatingWords({
     return () => clearInterval(t);
   }, [words.length, interval]);
 
+  const longest = words.reduce((a, b) => (b.length > a.length ? b : a), "");
+
   return (
-    <span
-      key={i}
-      className={`inline-block animate-word-swap [transform-style:preserve-3d] ${
-        className ?? ""
-      }`}
-    >
-      {words[i]}
+    <span className="relative inline-block align-bottom">
+      <span aria-hidden className={`invisible ${className}`}>
+        {longest}
+      </span>
+      {words.map((w, idx) => (
+        <span
+          key={w}
+          aria-hidden={idx !== i}
+          className={`absolute left-0 top-0 whitespace-nowrap transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${className}`}
+          style={{
+            opacity: idx === i ? 1 : 0,
+            transform: idx === i ? "translateY(0)" : "translateY(0.4em)",
+            willChange: "opacity, transform",
+          }}
+        >
+          {w}
+        </span>
+      ))}
     </span>
   );
 }
