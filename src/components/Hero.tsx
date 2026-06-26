@@ -1,6 +1,7 @@
 import { PillButton } from "./PillButton";
 import { MarqueeLogos } from "./MarqueeLogos";
 import { LazyVideo } from "./LazyVideo";
+import { RotatingWords } from "./RotatingWords";
 import { platforms, company } from "../content";
 
 export function Hero() {
@@ -25,12 +26,14 @@ export function Hero() {
 
         <div className="relative z-10 flex h-full flex-col items-start justify-start p-8 pt-32 md:p-12 md:pt-36">
           <h1
-            className="mb-4 max-w-xl text-5xl font-medium leading-tight text-black md:text-6xl"
+            className="mb-4 max-w-2xl text-6xl font-medium leading-[0.98] text-black md:text-7xl lg:text-[5rem]"
             style={{ letterSpacing: "-0.04em" }}
           >
-            Confidence in
+            Financial
             <br />
-            every number
+            <RotatingWords
+              words={["confidence", "independence", "freedom", "growth"]}
+            />
           </h1>
           <p
             className="mb-8 max-w-md text-base leading-relaxed text-black/70 md:text-lg"
