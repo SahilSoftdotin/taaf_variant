@@ -1,5 +1,6 @@
 import { PillButton } from "./PillButton";
 import { MarqueeLogos } from "./MarqueeLogos";
+import { LazyVideo } from "./LazyVideo";
 import { platforms, company } from "../content";
 
 export function Hero() {
@@ -9,17 +10,10 @@ export function Hero() {
         className="relative w-full overflow-hidden rounded-2xl"
         style={{ height: "calc(100vh - 96px)" }}
       >
-        <video
+        <LazyVideo
+          src="/video/hero-coin.mp4"
           className="absolute inset-0 h-full w-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          aria-hidden
-        >
-          <source src="/video/hero-coin.mp4" type="video/mp4" />
-        </video>
+        />
         {/* light wash so dark text stays readable over the footage */}
         <div
           className="absolute inset-0"

@@ -1,20 +1,14 @@
 import { ArrowRight } from "lucide-react";
 import { useCases } from "../content";
+import { LazyVideo } from "./LazyVideo";
 
 function Video({ src }: { src: string }) {
   return (
     <>
-      <video
+      <LazyVideo
+        src={src}
         className="absolute inset-0 h-full w-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        aria-hidden
-      >
-        <source src={src} type="video/mp4" />
-      </video>
+      />
       <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
     </>
   );
